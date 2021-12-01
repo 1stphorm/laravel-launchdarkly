@@ -74,4 +74,4 @@ composer test
 
 ## License
 
-The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+The Apache License (Apache 2.0). Please see [License File](LICENSE.md) for more information.

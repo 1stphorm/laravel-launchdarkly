@@ -13,7 +13,7 @@ composer require ocus/laravel-launchdarkly
 
 You can publish the config file with:
 ```bash
-php artisan vendor:publish --provider="Ocus\LaravelLaunchDarkly\LaravelLaunchDarklyServiceProvider" --tag="laravel-launchdarkly-config"
+php artisan vendor:publish --provider="Ocus\LaravelLaunchDarkly\LaravelLaunchDarklyServiceProvider" --tag="launchdarkly-config"
 ```
 
 You can add in you `.env` file the LaunchDarkly SDK key

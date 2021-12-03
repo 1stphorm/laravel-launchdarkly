@@ -17,6 +17,7 @@
     ],
     "require": {
         "php": "^7.4|^8.0",
+        "ext-json": "*",
         "illuminate/contracts": "^8.0",
         "launchdarkly/server-sdk": "^4.0",
         "spatie/laravel-package-tools": "^1.9.2"
@@ -49,7 +50,11 @@
         "test-coverage": "vendor/bin/pest coverage"
     },
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
+        }
     },
     "extra": {
         "laravel": {

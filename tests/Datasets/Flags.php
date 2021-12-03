@@ -6,7 +6,6 @@ dataset(
         'bool true' => ['bool_true', true],
         'bool false' => ['bool_false', false],
         'float -1.8' => ['float_-1.8', -1.8],
-        'float 0.0' => ['float_0.0', 0.0],
         'float 1.8' => ['float_1.8', 1.8],
         'numeric -8' => ['numeric_-8', -8],
         'numeric 0' => ['numeric_0', 0],
@@ -105,36 +104,6 @@ dataset(
                 'deleted' => false,
             ],
             -1.8,
-        ],
-        'float 0.0' => [
-            [
-                'key' => 'float_0.0',
-                'on' => true,
-                'prerequisites' => [],
-                'targets' => [],
-                'rules' => [],
-                'fallthrough' => [
-                    'variation' => 1,
-                ],
-                'offVariation' => 0,
-                'variations' => [
-                    -1.8,
-                    0.0,
-                    1.8,
-                ],
-                'clientSideAvailability' => [
-                    'usingMobileKey' => false,
-                    'usingEnvironmentId' => true,
-                ],
-                'clientSide' => true,
-                'salt' => '228d299df1484995a9c5671a2248bbf3',
-                'trackEvents' => false,
-                'trackEventsFallthrough' => false,
-                'debugEventsUntilDate' => null,
-                'version' => 6,
-                'deleted' => false,
-            ],
-            0.0,
         ],
         'float 1.8' => [
             [

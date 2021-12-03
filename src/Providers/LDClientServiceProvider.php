@@ -3,9 +3,11 @@
 namespace Ocus\LaravelLaunchDarkly\Providers;
 
 use Illuminate\Contracts\Support\DeferrableProvider;
+use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\ServiceProvider;
 use LaunchDarkly\LDClient;
+use Ocus\LaravelLaunchDarkly\Http\Middleware\LaunchDarklyMiddleware;
 
 class LDClientServiceProvider extends ServiceProvider implements DeferrableProvider
 {
@@ -25,6 +27,10 @@ class LDClientServiceProvider extends ServiceProvider implements DeferrableProvi
 
             return new LDClient($sdkKey, $options);
         });
+
+        // Register middleware alias
+        $router = $this->app->make(Router::class);
+        $router->aliasMiddleware('launch-darkly', LaunchDarklyMiddleware::class);
     }
 
     /**

@@ -42,7 +42,7 @@ public function getLaunchDarklyUserAttribute(): \LaunchDarkly\LDUser
 }
 ```
 
-### In Production
+### In the code
 
 ```php
 use Ocus\LaravelLaunchDarkly\Facades\LaunchDarkly;
@@ -51,7 +51,17 @@ use Ocus\LaravelLaunchDarkly\Facades\LaunchDarkly;
 LaunchDarkly::variation('your.flag.key', $user->launch_darkly_user);
 ```
 
-### In Tests
+### In routes
+
+You can use the `launch-darkly` middleware in your routes definition:
+
+```php
+Route::middleware('launch-darkly:my-key,my-value')->get('/my-route', ...);
+```
+
+All value types are supported except json.
+
+### In the tests
 
 ```php
 use Ocus\LaravelLaunchDarkly\Facades\LaunchDarkly;

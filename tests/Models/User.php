@@ -3,12 +3,12 @@
 namespace Ocus\LaravelLaunchDarkly\Tests\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use LaunchDarkly\LDUser;
 use LaunchDarkly\LDUserBuilder;
 use Ocus\LaravelLaunchDarkly\Contracts\IsLaunchDarklyUser;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Model implements IsLaunchDarklyUser
+class User extends Authenticatable implements IsLaunchDarklyUser
 {
     use HasFactory;
 

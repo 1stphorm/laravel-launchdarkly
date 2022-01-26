@@ -9,7 +9,7 @@ class LaravelLaunchDarklyInMemoryService extends LDClient
     /**
      * @param array $flag
      */
-    public function addFag(array $flag): void
+    public function addFlag(array $flag): void
     {
         $this->_featureRequester->addFlag($flag);
     }

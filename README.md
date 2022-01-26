@@ -1,6 +1,10 @@
 # Laravel LaunchDarkly package
 
 ---
+[![pipeline status](https://gitlab.com/we-are-ocus/ocus-open-source/packages/php/laravel-launchdarkly/badges/main/pipeline.svg)](https://gitlab.com/we-are-ocus/ocus-open-source/packages/php/laravel-launchdarkly/-/commits/main)
+[![coverage report](https://gitlab.com/we-are-ocus/ocus-open-source/packages/php/laravel-launchdarkly/badges/main/coverage.svg)](https://gitlab.com/we-are-ocus/ocus-open-source/packages/php/laravel-launchdarkly/-/commits/main)
+
+
 This package provides the LaunchDarkly PHP SDK in a Laravel ecosystem for an easy use with the framework.
 It in includes the facade to use it in your code. And in memory mock to help you in your tests.
 

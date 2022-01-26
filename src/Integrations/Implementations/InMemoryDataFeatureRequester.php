@@ -42,7 +42,7 @@ class InMemoryDataFeatureRequester implements FeatureRequester
      */
     public function getSegment(string $key): ?Segment
     {
-        return $this->segments->get('key');
+        return $this->segments->get($key);
     }
 
     /**
@@ -58,8 +58,8 @@ class InMemoryDataFeatureRequester implements FeatureRequester
      */
     public function addFlag(array $flag): void
     {
-        $flag = FeatureFlag::decode($flag);
-        $this->flags->put($flag->getKey(), $flag);
+        $decodedFlag = FeatureFlag::decode($flag);
+        $this->flags->put($decodedFlag->getKey(), $decodedFlag);
     }
 
     /**
@@ -67,9 +67,9 @@ class InMemoryDataFeatureRequester implements FeatureRequester
      *
      * @param mixed $value
      */
-    public function addFlagValue(string $key, $value): void
+    public function addFlagValue(string $key, mixed $value): void
     {
-        $flag = FeatureFlag::decode(array(
+        $decodedFlag = FeatureFlag::decode([
             "key" => $key,
             "version" => 1,
             "on" => false,
@@ -83,9 +83,9 @@ class InMemoryDataFeatureRequester implements FeatureRequester
             "deleted" => false,
             "trackEvents" => false,
             "clientSide" => false
-        ));
+        ]);
 
-        $this->flags->put($flag->getKey(), $flag);
+        $this->flags->put($decodedFlag->getKey(), $decodedFlag);
     }
 
     /**
@@ -93,7 +93,7 @@ class InMemoryDataFeatureRequester implements FeatureRequester
      */
     public function addSegment(array $segment): void
     {
-        $segment = Segment::decode($segment);
-        $this->segments->put($segment->getKey(), $segment);
+        $decodedSegment = Segment::decode($segment);
+        $this->segments->put($decodedSegment->getKey(), $decodedSegment);
     }
 }

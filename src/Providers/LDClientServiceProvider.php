@@ -2,6 +2,7 @@
 
 namespace Ocus\LaravelLaunchDarkly\Providers;
 
+use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Config;
@@ -9,12 +10,17 @@ use Illuminate\Support\ServiceProvider;
 use LaunchDarkly\LDClient;
 use Ocus\LaravelLaunchDarkly\Http\Middleware\LaunchDarklyMiddleware;
 
+/**
+ * @codeCoverageIgnore
+ */
 class LDClientServiceProvider extends ServiceProvider implements DeferrableProvider
 {
     /**
      * Bootstrap any application services.
      *
      * @return void
+     *
+     * @throws BindingResolutionException
      */
     public function boot(): void
     {

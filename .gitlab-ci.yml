@@ -9,7 +9,8 @@ include:
   - template: Security/SAST.gitlab-ci.yml
 
 variables:
-  COMPOSER_VERSION: "2.1.12"
+  COMPOSER_VERSION: "2.2.6"
+  PHP_VERSION: "8.1-cli"
 
 default:
   image: composer:$COMPOSER_VERSION
@@ -39,6 +40,7 @@ sast:
 
 phpunit:
   stage: test
+  image: php:$PHP_VERSION
   retry:
     max: 2
     when:
@@ -47,7 +49,9 @@ phpunit:
       - scheduler_failure
   interruptible: true
   script:
-    - composer test
+    - pecl install pcov
+    - docker-php-ext-enable pcov
+    - ./vendor/bin/pest --coverage
   artifacts:
     expire_in: 1 day
     paths:

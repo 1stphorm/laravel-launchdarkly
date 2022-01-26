@@ -17,7 +17,7 @@ use Ocus\LaravelLaunchDarkly\Services\LaravelLaunchDarklyInMemoryService;
  * @method static void alias(\LaunchDarkly\LDUser $user, \LaunchDarkly\LDUser $previousUser)
  * @method static string secureModeHash(\LaunchDarkly\LDUser $user)
  * @method static bool flush()
- * @method static void addFag(array $flag)
+ * @method static void addFlag(array $flag)
  * @method static void addFlagValue(string $key, $value)
  * @method static void addSegment(array $segment)
  *

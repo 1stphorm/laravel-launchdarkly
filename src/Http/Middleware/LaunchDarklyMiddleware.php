@@ -29,10 +29,6 @@ class LaunchDarklyMiddleware
         $user = Auth::user();
         $decodedValue  = json_decode($value, true, 512, JSON_THROW_ON_ERROR);
 
-        if ($decodedValue === null) {
-            $decodedValue = $value;
-        }
-
         if (!$user || LaunchDarkly::variation($key, $user->launch_darkly_user) !== $decodedValue) {
             throw new AccessDeniedHttpException('This feature is not enabled for your account');
         }

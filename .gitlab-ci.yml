@@ -52,7 +52,7 @@ phpunit:
     - pecl install pcov
     - docker-php-ext-enable pcov
     - ./vendor/bin/pest --coverage
-  coverage: '/^\s*Cov:\s*\d+.\d+\%/'
+  coverage: '/Cov:.*(\d+.\d+)\%/'
   artifacts:
     expire_in: 1 day
     paths:

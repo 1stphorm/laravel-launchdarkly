@@ -3,7 +3,7 @@
 namespace Ocus\LaravelLaunchDarkly\Integrations\Implementations;
 
 use Illuminate\Support\Collection;
-use LaunchDarkly\FeatureRequester;
+use LaunchDarkly\Subsystems\FeatureRequester;
 use LaunchDarkly\Impl\Model\FeatureFlag;
 use LaunchDarkly\Impl\Model\Segment;
 

@@ -2,11 +2,10 @@
 
 namespace Ocus\LaravelLaunchDarkly\Tests\Models;
 
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use LaunchDarkly\LDUser;
-use LaunchDarkly\LDUserBuilder;
 use Ocus\LaravelLaunchDarkly\Contracts\IsLaunchDarklyUser;
-use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable implements IsLaunchDarklyUser
 {
@@ -30,10 +29,11 @@ class User extends Authenticatable implements IsLaunchDarklyUser
      */
     public function getLaunchDarklyUserAttribute(): LDUser
     {
-        return (new LDUserBuilder($this->getKey()))
-            ->secondary(self::class)
-            ->email($this->email)
-            ->name($this->name)
-            ->build();
+        return new LDUser(
+            key: $this->getKey(),
+            secondary: self::class,
+            email: $this->email,
+            name: $this->name
+        );
     }
 }

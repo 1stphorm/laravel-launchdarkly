@@ -9,8 +9,8 @@ include:
   - template: Security/SAST.gitlab-ci.yml
 
 variables:
-  COMPOSER_VERSION: "2.2.6"
-  PHP_VERSION: "8.1-cli"
+  COMPOSER_VERSION: "2.5.8"
+  PHP_VERSION: "8.2-cli"
 
 default:
   image: composer:$COMPOSER_VERSION

@@ -1,22 +1,10 @@
 <?php
 
-dataset(
-    'flagValues',
-    [
-        'bool true' => ['bool_true', true],
-        'bool false' => ['bool_false', false],
-        'float -1.8' => ['float_-1.8', -1.8],
-        'float 1.8' => ['float_1.8', 1.8],
-        'numeric -8' => ['numeric_-8', -8],
-        'numeric 0' => ['numeric_0', 0],
-        'numeric 8' => ['numeric_8', 8],
-        'string' => ['string', 'text'],
-    ]
-);
+namespace Ocus\LaravelLaunchDarkly\Tests\Datasets;
 
-dataset(
-    'flags',
-    [
+class Flags
+{
+    public const flags = [
         'bool true' => [
             [
                 'key' => 'bool_true',
@@ -311,5 +299,16 @@ dataset(
                 ],
             ],
         ],
-    ]
-);
+    ];
+
+    public const flagValues = [
+        'bool true' => ['bool_true', true],
+        'bool false' => ['bool_false', false],
+        'float -1.8' => ['float_-1.8', -1.8],
+        'float 1.8' => ['float_1.8', 1.8],
+        'numeric -8' => ['numeric_-8', -8],
+        'numeric 0' => ['numeric_0', 0],
+        'numeric 8' => ['numeric_8', 8],
+        'string' => ['string', 'text'],
+    ];
+}

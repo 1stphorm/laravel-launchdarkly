@@ -2,8 +2,8 @@
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Ocus\LaravelLaunchDarkly\Facades\LaunchDarkly;
+use Ocus\LaravelLaunchDarkly\Tests\Datasets\Flags;
 use Ocus\LaravelLaunchDarkly\Tests\Models\User;
-use Pest\Datasets;
 
 uses(RefreshDatabase::class);
 
@@ -123,9 +123,7 @@ it(
 it(
     'returns all the features',
     function (): void {
-        $flags = Datasets::get('flags');
-
-        foreach ($flags as $flag) {
+        foreach (Flags::flags as $flag) {
             LaunchDarkly::addFlag($flag[0]);
         }
 
@@ -135,6 +133,6 @@ it(
                     ::allFlagsState($this->user->launch_darkly_user)
                     ->toValuesMap()
             )
-        )->toBe(count($flags));
+        )->toBe(count(Flags::flags));
     }
 );

@@ -4,7 +4,7 @@ namespace Ocus\LaravelLaunchDarkly\Tests\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use LaunchDarkly\LDUser;
+use LaunchDarkly\LDContext;
 use Ocus\LaravelLaunchDarkly\Contracts\IsLaunchDarklyUser;
 
 class User extends Authenticatable implements IsLaunchDarklyUser
@@ -22,18 +22,22 @@ class User extends Authenticatable implements IsLaunchDarklyUser
     ];
 
     /**
-     * @return LDUser
+     * @return LDContext
      *
-     * @see \LaunchDarkly\LDUserBuilder
+     * @see \LaunchDarkly\LDContextBuilder
      * @link https://docs.launchdarkly.com/sdk/features/user-config#php
      */
-    public function getLaunchDarklyUserAttribute(): LDUser
+    public function getLaunchDarklyUserAttribute(): LDContext
     {
-        return new LDUser(
+        return new LDContext(
+            kind: 'User',
             key: $this->getKey(),
-            secondary: self::class,
-            email: $this->email,
-            name: $this->name
+            name: $this->name,
+            anonymous: false,
+            attributes: ['email', $this->email],
+            privateAttributes: null,
+            multiContexts: null,
+            error: null,
         );
     }
 }

@@ -93,7 +93,7 @@ it(
                     ],
                 ],
                 'fallthrough' => [
-                    'variation' => 1,
+                    'variation' => 0,
                 ],
                 'offVariation' => 1,
                 'variations' => [

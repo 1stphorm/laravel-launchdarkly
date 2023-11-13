@@ -2,15 +2,15 @@
 
 namespace Ocus\LaravelLaunchDarkly\Contracts;
 
-use LaunchDarkly\LDUser;
+use LaunchDarkly\LDContext;
 
 interface IsLaunchDarklyUser
 {
     /**
-     * @return LDUser
+     * @return LDContext
      *
      * @see \LaunchDarkly\LDUserBuilder
      * @link https://docs.launchdarkly.com/sdk/features/user-config#php
      */
-    public function getLaunchDarklyUserAttribute(): LDUser;
+    public function getLaunchDarklyUserAttribute(): LDContext;
 }
